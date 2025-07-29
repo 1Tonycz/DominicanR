@@ -1,0 +1,68 @@
+.footer{
+  background-color: $footer;
+  display: flex;
+  flex-direction: column;
+  padding: gap(xs, rem) gap(md, rem);
+  color: $white;
+  height: 300px;
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: gap(xs, rem);
+  }
+  &__logo img{
+    height: 60px;
+  }
+  &__layout{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: gap(md, rem);
+    height: 100%;
+  }
+  &__left{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+  }
+  &__mid{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__right{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__copyright{
+    font-size: 0.8rem;
+    text-align: center;
+    padding-top: gap(md, rem);
+    border-top: 1px solid $secondary;
+  }
+  &__links a{
+    display: block;
+    text-decoration: none;
+    color: $white;
+  }
+  &__socials{
+    display: flex;
+    gap: gap(md, rem);
+
+  }
+  &__socials a svg{
+    width: 24px;
+    height: 24px;
+    color: $white;
+  }
+}

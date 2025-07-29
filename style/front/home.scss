@@ -1,0 +1,5 @@
+@import "../root/root";
+@import "home/home__mobile";
+@include from(tablet){
+@import "home/home__desktop";
+}

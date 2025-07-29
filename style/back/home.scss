@@ -1,0 +1,7 @@
+@import "../root/root";
+@import "components/navbar/navbar__mobile";
+@import "home/home__mobile";
+@include from(tablet){
+  @import "components/navbar/navbar__desktop";
+  @import "home/home__desktop";
+}

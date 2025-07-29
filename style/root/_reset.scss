@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/css/font/Roboto-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/css/font/Roboto-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/css/font/Roboto-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root{
+  font-size: 16px;
+  font-weight: $fw-regular;
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+}
+html{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body,
+main{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1{
+  @include font-size(h1);
+}
+h2{
+  @include font-size(h2);
+}
+h3{
+  @include font-size(h3);
+}
+h4{
+  @include font-size(h4);
+}
+h5{
+  @include font-size(h5);
+}
+h6{
+  @include font-size(h6);
+}
+
+a{
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul, ol{
+  padding-left: 1.5em;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+textarea,
+input,
+button{
+  font-family: inherit;
+}
+
+iframe{
+  border: none;
+}
+
+sup,
+sub,
+small{
+  font-size: smaller;
+}

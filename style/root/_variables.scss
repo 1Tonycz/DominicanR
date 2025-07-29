@@ -1,0 +1,69 @@
+//COLORS
+$nav: rgba(229, 231, 235, 0.6);
+$footer: #1f2937;
+$white: #FFFFFF;
+$black: black;
+$primary: #00ACCC;
+$secondary: #333;
+$light: #f4fcfd;
+
+
+//BREAKPOINTS
+$breakpoints: (
+        mobile--small: 480px,
+        mobile: 576px,
+        tablet: 768px,
+        notebook--small: 1024px,
+        notebook: 1200px,
+        notebook--large: 1440px,
+        desktop: 1740px
+);
+
+
+//MAX WIDTHS
+$containers-max-width: (
+        mobile--small: 450px,
+        mobile: 540px,
+        tablet: 720px,
+        notebook--small: 992px,
+        notebook: 1140px,
+        notebook--large: 1360px,
+        desktop: 1660px
+);
+
+//FONT WEIGHTS
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+
+
+//FONT SIZES
+$font-size: (
+        small: (
+                h1: calc(1.375rem + 1.5vw),
+                h2: calc(1.325rem + .9vw),
+                h3: calc(1.3rem + .6vw),
+                h4: calc(1.275rem + .3vw),
+                h5: 1.25rem,
+                h6: 1rem
+        ),
+        large: (
+                h1: 2.5rem,
+                h2: 2rem,
+                h3: 1.75rem,
+                h4: 1.5rem,
+                h5: 1.25rem,
+                h6: 1rem
+        )
+);
+
+//GAPS
+$gaps: (
+        xs: .5,
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 5,
+        xxl: 10,
+        xxxl: 15
+)

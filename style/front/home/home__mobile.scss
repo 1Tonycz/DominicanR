@@ -1,0 +1,220 @@
+.welcome {
+  position: relative; // změna z "fixed" na "relative"
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+  }
+
+  &__darken {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    z-index: 2;
+    text-align: center;
+    max-width: 90vw;
+    width: 600px;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5em;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    > span > a {
+      color: $white;
+      background-color: rgba(35, 35, 35, 0.6);
+      padding: 10px 20px;
+      backdrop-filter: blur(100px);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 1.5em;
+    flex-wrap: wrap;
+  }
+
+  &__button a {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: $primary;
+    color: $white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &:focus {
+      background-color: $primary;
+      box-shadow: 0 0 10px $primary;
+      outline: none;
+    }
+  }
+}
+
+.captive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: gap(sm, rem);
+  color: $black;
+  padding: gap(md, rem) gap(md, rem);
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: $secondary;
+  }
+
+  &__blocks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: gap(md, rem);
+    padding: gap(sm, rem) 0;
+  }
+
+  &__block {
+    width: 100%;
+    border: 3px solid $light;
+    background-color: $light;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      border-color: lighten($primary, 10%);
+    }
+  }
+
+  &__inblock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: gap(xs, rem);
+
+    p {
+      padding: gap(sm, rem) gap(xs, rem);
+    }
+
+    span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      padding: 10px;
+      border-radius: 50px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+#lodging{
+  background-color: $light !important;
+}
+
+.lodging__noborder{
+    border: none !important;
+  background-color: $white !important;
+}
+
+.about{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: gap(sm, rem);
+  color: $black;
+  padding: gap(md, rem) gap(md, rem);
+
+  &__layout{
+    padding: gap(sm, rem) 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $light;
+    border-radius: 30px;
+    gap: gap(sm, rem);
+  }
+
+  &__left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h4{
+        font-size: 1.8rem;
+        margin-bottom: 0.5em;
+    }
+    p{
+      font-size: 1.3rem;
+    }
+  }
+  &__right{
+    width: 100%;
+    img{
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+parameters:
+
+
+application:
+	errorPresenter: Error:Error
+	mapping:
+	    Admin: App\Admin\UI\*\**Presenter
+	    Front: App\Front\UI\*\**Presenter
+	    Error: App\Error\*Presenter
+
+
+database:
+    dsn: 'mysql:host=localhost:3306;dbname=dr_web'
+    user: 'root'
+    password: ''
+
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+
+
+di:
+	export:
+		parameters: no
+		tags: no

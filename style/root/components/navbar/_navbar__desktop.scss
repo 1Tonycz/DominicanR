@@ -1,0 +1,53 @@
+nav {
+  padding: gap(xs, rem) gap(xl, rem);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.nav-container {
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* Centrování menu */
+.menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 0;
+}
+
+.menu a {
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.menu-wrapper {
+  all: unset; /* Resetujeme mobilní styly */
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 0;
+  border: none;
+  padding: 0;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+}

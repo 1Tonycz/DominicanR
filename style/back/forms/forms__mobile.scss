@@ -1,0 +1,217 @@
+.apartment-form {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #222;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+// === FORM FIELDS ===
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.6rem;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: #007BFF;
+        outline: none;
+      }
+    }
+
+    .error {
+      font-size: 0.875rem;
+      color: #dc3545;
+      margin-top: 0.3rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .form-group {
+      flex: 1 1 45%;
+    }
+  }
+}
+
+// === IMAGE UPLOAD COMPONENT ===
+.accom-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  &__drop {
+    border: 2px dashed #ccc;
+    background-color: #f4f4f4;
+    padding: 1.25rem;
+    text-align: center;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.highlight {
+      background-color: #e0f3ff;
+    }
+  }
+
+  &__preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__preview {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 0.8rem;
+      object-fit: cover;
+    }
+
+    .accom-images__delete {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #b02a37;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__preview-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__preview {
+      width: 160px;
+    }
+  }
+}
+
+// === SUBMIT BUTTON ===
+.div-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-submit {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.accom-images__preview {
+  position: relative;
+
+  &.is-main {
+    border: 2px solid #007BFF;
+
+    &::after {
+      content: "Hlavní";
+      position: absolute;
+      bottom: 0.3rem;
+      right: 0.5rem;
+      background-color: #007BFF;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.4rem;
+    }
+  }
+
+  .accom-images__main-toggle {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #007BFF;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 50%;
+
+    &:hover {
+      background: #e0f0ff;
+    }
+  }
+}
+
+.accom-images--main {
+  .accom-images__drop {
+    border-color: #007BFF;
+    background-color: #eaf4ff;
+  }
+}

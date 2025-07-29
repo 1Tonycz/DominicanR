@@ -1,0 +1,30 @@
+@mixin container($key: mobile--small) {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: gap(sm, 0em);
+
+  $min-size: map-get($breakpoints, $key);
+
+  @each $breakpoint, $size in $breakpoints {
+    @if $min-size <= $size {
+      @media screen and (min-width: $size) {
+        max-width: map-get($containers-max-width, $breakpoint);
+      }
+    }
+  }
+}
+
+
+@mixin from($key) {
+  $breakpoint: map-get($breakpoints, $key);
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin font-size($key) {
+  font-size: map-deep-get($font-size, small, $key);
+  @include from(tablet) {
+    font-size: map-deep-get($font-size, large, $key);
+  }
+}

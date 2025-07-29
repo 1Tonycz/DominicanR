@@ -1,0 +1,37 @@
+{block content}
+    <h1>Upravit apartmán</h1>
+
+    <form n:name="apartmentForm">
+        <div>
+            <label for="name">Název</label>
+            <input n:name="name">
+        </div>
+
+        <div>
+            <label for="capacity">Kapacita</label>
+            <input n:name="capacity">
+        </div>
+
+        <div>
+            <label for="description">Popis</label>
+            <textarea n:name="description"></textarea>
+        </div>
+
+        <div>
+            <label for="price">Cena za noc</label>
+            <input n:name="price">
+        </div>
+
+        <div>
+            <label for="mainImage">Hlavní obrázek</label>
+            <input n:name="mainImage">
+        </div>
+
+        <div>
+            <label for="gallery">Galerie obrázků</label>
+            <input n:name="gallery">
+        </div>
+
+        <button type="submit">Uložit změny</button>
+    </form>
+{/block}

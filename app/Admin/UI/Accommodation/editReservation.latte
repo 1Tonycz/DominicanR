@@ -1,0 +1,42 @@
+{block content}
+    <h1>Upravit rezervaci</h1>
+
+    <form n:name="reservationForm">
+        <div>
+            <label for="first_name">Jméno</label>
+            <input n:name="first_name">
+        </div>
+
+        <div>
+            <label for="second_name">Příjmení</label>
+            <input n:name="second_name">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input n:name="email">
+        </div>
+
+        <div>
+            <label for="phone">Telefon</label>
+            <input n:name="phone">
+        </div>
+
+        <div>
+            <label for="from_date">Od</label>
+            <input n:name="from_date">
+        </div>
+
+        <div>
+            <label for="to_date">Do</label>
+            <input n:name="to_date">
+        </div>
+
+        <div>
+            <label for="note">Poznámka</label>
+            <textarea n:name="note"></textarea>
+        </div>
+
+        <button type="submit">Uložit změny</button>
+    </form>
+{/block}

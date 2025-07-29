@@ -1,0 +1,178 @@
+{var $css = "home"}
+{block content}
+
+<header class="welcome">
+    <video autoplay loop muted playsinline>
+        <source src="{$basePath}video/movie.mp4" type="video/mp4"/>
+    </video>
+    <div class="welcome__darken"></div>
+    <div class="welcome__overlay">
+        <h1>Objevte Ráj</h1>
+        <h2>Zažijte nezapomenutelné zážitky na tropických plážích s<br>křišťalově čistou vodou a palmami</h2>
+        <div class="welcome__buttons">
+            <span class="welcome__button"><a>Zjistit více o ubytování</a></span>
+            <span class="welcome__button"><a>Prohlédnout aktivity</a></span>
+        </div>
+        <span><a>Zjistit více o nás</a></span>
+    </div>
+</header>
+
+<main>
+    <section class="captive">
+        <h2>Objevte krásy Dominikánské republiky</h2>
+        <h3>Matodo vám nabízí nezapomenutelné zážitky v tropickém ráji. Specializujeme se na autentické dominikánské dobrodružství, která vás uchvátí.</h3>
+
+        <div class="captive__blocks">
+            <article class="captive__block">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/beach.jpg" alt="Exotická pláž v Dominikásnké Republice">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 101.52 122.88" style="enable-background:new 0 0 101.52 122.88" xml:space="preserve" height="16" width="16"><style type="text/css"></style><g><path class="st0" d="M25.73,87.87c1.9-22.06,5.7-40.18,21.5-47.37c8.89,26.88,1.86,52.62-8.49,82.38h16.13 c10.12-47.61,4.97-65.06-1.19-80.59c9.73,6.12,18.4,19.33,26.7,40.27c11.65-21.72,4.25-37.66-23.41-48.02 c15.82-4.89,30.65,1.35,44.56,13.66c-7.45-28.07-28.7-34.87-47.68-18.84C56.44,9.25,48.14,4.41,37.02,0 c5.23,7.96,9.2,16.26,8.6,25.8C28.46,10.05,14.19,15.88,1,29.75c12.65-2.96,25.74-4.2,36.79,3.2C17.96,30.43,6.86,41.61,0,56.29 c8.3-7.6,16.11-12.52,24.41-13.42C15.71,58.64,19.56,72.58,25.73,87.87L25.73,87.87z"/></g></svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Exotické pláže</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="captive__block">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/adrenalin.jpg" alt="Jízda v buggyně Dominikánská republika">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Adrenalinové zážitky</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="captive__block">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/nature.jpg" alt="Jedinečný vodopád v Dominikánské republice">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree" viewBox="0 0 16 16">
+                                <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Krásy přírody</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="captive" id="lodging">
+        <h2>Ubytujte se s námi</h2>
+        <h3>Vyberte si z našich komfortních apartmánů a užijte si dovolenou s maximálním pohodlím.</h3>
+
+        <div class="captive__blocks">
+            <article class="captive__block lodging__noborder">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/breakfast.jpg" alt="Exotická pláž v Dominikásnké Republice">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 101.52 122.88" style="enable-background:new 0 0 101.52 122.88" xml:space="preserve" height="16" width="16"><style type="text/css"></style><g><path class="st0" d="M25.73,87.87c1.9-22.06,5.7-40.18,21.5-47.37c8.89,26.88,1.86,52.62-8.49,82.38h16.13 c10.12-47.61,4.97-65.06-1.19-80.59c9.73,6.12,18.4,19.33,26.7,40.27c11.65-21.72,4.25-37.66-23.41-48.02 c15.82-4.89,30.65,1.35,44.56,13.66c-7.45-28.07-28.7-34.87-47.68-18.84C56.44,9.25,48.14,4.41,37.02,0 c5.23,7.96,9.2,16.26,8.6,25.8C28.46,10.05,14.19,15.88,1,29.75c12.65-2.96,25.74-4.2,36.79,3.2C17.96,30.43,6.86,41.61,0,56.29 c8.3-7.6,16.11-12.52,24.41-13.42C15.71,58.64,19.56,72.58,25.73,87.87L25.73,87.87z"/></g></svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Domácí snídaně</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="captive__block lodging__noborder">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/transport.jpg" alt="Jízda v buggyně Dominikánská republika">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Transfér z letiště</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="captive__block lodging__noborder">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/interier.jpg" alt="Jedinečný vodopád v Dominikánské republice">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree" viewBox="0 0 16 16">
+                                <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Plně vybavenný</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+            <article class="captive__block lodging__noborder">
+                <div class="captive__inblock">
+                    <figure>
+                        <img class="captive__img" src="{$basePath}/img/home/location.jpg" alt="Jedinečný vodopád v Dominikánské republice">
+                    </figure>
+                    <div>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree" viewBox="0 0 16 16">
+                                <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h4>Ideální lokace</h4>
+                        <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>Kdo jsme?</h2>
+        <div class="about__layout">
+            <article class="about__left">
+                <h4>Lorem impsun</h4>
+                <p>Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun Lorem impsun</p>
+            </article>
+            <article class="about__right">
+                <figure>
+                    <img src="{$basePath}/img/home/us.jpg" alt="Matodo team">
+                </figure>
+            </article>
+        </div>
+    </section>
+
+</main>

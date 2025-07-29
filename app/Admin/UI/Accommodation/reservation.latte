@@ -1,0 +1,32 @@
+{block content}
+    <h1>Rezervace apartmánu: {$apartment->name}</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Od</th>
+            <th>Do</th>
+            <th>Poznámka</th>
+            <th>Akce</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $reservations as $reservation}
+            <tr>
+                <td>{$reservation->first_name} {$reservation->second_name}</td>
+                <td>{$reservation->email}</td>
+                <td>{$reservation->phone}</td>
+                <td>{$reservation->from_date|date:'d.m.Y'}</td>
+                <td>{$reservation->to_date|date:'d.m.Y'}</td>
+                <td>{$reservation->note}</td>
+                <td>
+                    <a n:href="editReservation, id => $reservation->id">Upravit</a>
+                </td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+{/block}

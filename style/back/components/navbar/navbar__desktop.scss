@@ -1,0 +1,11 @@
+.nav{
+  &__up{
+    flex-wrap: nowrap;
+  }
+  &__left{
+    justify-content: flex-start !important;
+  }
+  &__right{
+    justify-content: flex-end !important;
+  }
+}
