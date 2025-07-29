@@ -23,7 +23,7 @@ final class ApartmentFormFactory
         $form->addTextArea('description', 'Popis:')
             ->setHtmlAttribute('rows', 5);
 
-        $form->addText('price', 'Cena za noc:')
+        $form->addInteger('price', 'Cena za noc:')
             ->setRequired('Zadejte cenu.')
             ->addRule($form::FLOAT, 'Cena musí být číslo.');
 

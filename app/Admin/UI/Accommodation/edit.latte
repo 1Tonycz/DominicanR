@@ -1,37 +1,70 @@
+{var $css = "forms"}
+{var $js = "home"}
+
 {block content}
-    <h1>Upravit apartmán</h1>
+    <div class="apartment-form">
+        <h1>{$heading}</h1>
 
-    <form n:name="apartmentForm">
-        <div>
-            <label for="name">Název</label>
-            <input n:name="name">
+        <form n:name="apartmentForm" enctype="multipart/form-data">
+
+            <div class="form-section">
+                <div class="form-group">
+                    {label name /}
+                {input name}
+                </div>
+                <div class="form-group">
+                    {label capacity /}
+                {input capacity}
+                </div>
+                <div class="form-group">
+                    {label description /}
+                {input description}
+                </div>
+                <div class="form-group">
+                    {label price /}
+                {input price}
+                </div>
+            </div>
+
+            {* === Hlavní obrázek === *}
+        <div class="accom-images accom-images--main">
+                    <span class="accom-images__label">Hlavní obrázek</span>
+                    <div id="main-drop-area" class="accom-images__drop">
+                        Přetáhněte hlavní obrázek sem nebo klikněte
+                        <input type="file" name="mainImage" id="mainImageInput" accept="image/*" hidden>
+                    </div>
+                    <div id="main-preview" class="accom-images__preview-list">
+                        {if $apartment->main_image_name}
+                            <div class="accom-images__preview">
+                                <img src="{$basePath}/uploads/apartments/{$apartment->id}/{$apartment->main_image_name}" alt="">
+                                <span class="accom-images__delete">×</span>
+                            </div>
+                        {/if}
+                    </div>
         </div>
 
-        <div>
-            <label for="capacity">Kapacita</label>
-            <input n:name="capacity">
-        </div>
+        {* === Galerie === *}
+            <div class="accom-images">
+                <span class="accom-images__label">Galerie obrázků</span>
+                <div id="gallery-drop-area" class="accom-images__drop">
+                    Přetáhněte obrázky sem nebo klikněte pro výběr
+                    <input type="file" name="images[]" id="galleryInput" multiple accept="image/*" hidden>
+                </div>
+                <div id="gallery-preview" class="accom-images__preview-list">
+                    {foreach $images as $image}
+                        <div class="accom-images__preview" data-id="{$image->id}">
+                            <img src="{$basePath}/uploads/apartments/{$apartment->id}/{$image->id}.jpg" alt="">
+                            <span class="accom-images__delete" data-id="{$image->id}">×</span>
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
 
-        <div>
-            <label for="description">Popis</label>
-            <textarea n:name="description"></textarea>
-        </div>
+            <div>
+                {input save}
+            </div>
+        </form>
+    </div>
 
-        <div>
-            <label for="price">Cena za noc</label>
-            <input n:name="price">
-        </div>
-
-        <div>
-            <label for="mainImage">Hlavní obrázek</label>
-            <input n:name="mainImage">
-        </div>
-
-        <div>
-            <label for="gallery">Galerie obrázků</label>
-            <input n:name="gallery">
-        </div>
-
-        <button type="submit">Uložit změny</button>
-    </form>
 {/block}
+

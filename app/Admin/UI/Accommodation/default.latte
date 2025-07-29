@@ -16,8 +16,8 @@
                 {foreach $apartments as $apartment}
                     <div class="accom__line">
                         <div class="accom__image">
-                            {if $apartment['mainImagePath']}
-                                <img src="{$basePath}/{$apartment['mainImagePath']}" alt="{$apartment['name']}" style="max-width: 100px;">
+                            {if $apartment['main_image_name']}
+                                <img src="{$basePath}/uploads/apartments/{$apartment['id']}/{$apartment['main_image_name']}" alt="{$apartment['name']}" style="max-width: 100px;">
                             {/if}
                         </div>
 

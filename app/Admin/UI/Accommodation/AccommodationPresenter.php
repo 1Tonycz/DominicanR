@@ -47,8 +47,15 @@ final class AccommodationPresenter extends BasePresenter
 
     public function renderEdit(int $id): void
     {
+        $apartment = $this->apartmentRepository->getById($id);
+        if (!$apartment) {
+            $this->error('Apartmán nebyl nalezen');
+        }
+
         $this->template->heading = 'Upravit apartmán';
         $this->template->apartmentId = $id;
+        $this->template->apartment = $apartment;
+        $this->template->images = $this->imagesApartmentRepository->getImagesByApartment($id)->fetchAll();
     }
 
     // === Výpis rezervací pro apartmán ===
@@ -97,53 +104,71 @@ final class AccommodationPresenter extends BasePresenter
 
     protected function createComponentApartmentForm(): Form
     {
-        return $this->apartmentFormFactory->create(function (\stdClass $values): void {
-            $apartment = $this->apartmentRepository->insert([
-                'name' => $values->name,
-                'capacity' => $values->capacity,
-                'description' => $values->description,
-                'price' => $values->price,
-            ]);
+        $id = $this->getParameter('id'); // získání ID pokud existuje
+        $isEdit = $id !== null;
 
-            $apartmentId = $apartment->id;
+        return $this->apartmentFormFactory->create(function (\stdClass $values) use ($isEdit, $id): void {
+            if ($isEdit) {
+                $this->apartmentRepository->update($id, [
+                    'name' => $values->name,
+                    'capacity' => $values->capacity,
+                    'description' => $values->description,
+                    'price' => $values->price,
+                ]);
+                $apartmentId = $id;
+            } else {
+                $apartment = $this->apartmentRepository->insert([
+                    'name' => $values->name,
+                    'capacity' => $values->capacity,
+                    'description' => $values->description,
+                    'price' => $values->price,
+                ]);
+                $apartmentId = $apartment->id;
+            }
+
             $uploadDir = __DIR__ . '/../../../../www/uploads/apartments/' . $apartmentId;
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
 
-            // === Hlavní obrázek
-            $mainImage = $this->getHttpRequest()->getFile('mainImage');
-            if ($mainImage && $mainImage->isOk() && $mainImage->isImage()) {
+            $files = $this->getHttpRequest()->getFiles();
+
+/// === Hlavní obrázek
+            $mainImage = $files['mainImage'] ?? null;
+            if ($mainImage instanceof \Nette\Http\FileUpload && $mainImage->isOk() && $mainImage->isImage()) {
                 $filename = 'main_' . time() . '.' . $mainImage->getImageFileExtension();
                 $mainImage->move("$uploadDir/$filename");
                 $this->apartmentRepository->updateMainImage($apartmentId, $filename);
             }
 
-            // === Galerie obrázků
-            $gallery = $this->getHttpRequest()->getFiles()['images'] ?? [];
+/// === Galerie
+            $gallery = $files['images'] ?? null;
+
+            if ($gallery instanceof \Nette\Http\FileUpload && $gallery->isOk() && $gallery->isImage()) {
+                // jeden soubor – ošetření, kdyby `multiple` nebylo použito
+                $gallery = [$gallery];
+            }
+
             if (is_array($gallery)) {
                 foreach ($gallery as $i => $file) {
-                    if ($file->isOk() && $file->isImage()) {
-                        // 1. Vlož záznam do DB
+                    if ($file instanceof \Nette\Http\FileUpload && $file->isOk() && $file->isImage()) {
                         $imageRow = $this->imagesApartmentRepository->insert([
                             'apartment_id' => $apartmentId,
                             'position' => $i,
                             'is_main' => 0,
                         ]);
 
-                        // 2. Ulož soubor podle ID
-                        $imageId = $imageRow->id;
-                        $filename = "$imageId.jpg";
+                        $filename = $imageRow->id . '.jpg';
                         $file->move("$uploadDir/$filename");
                     }
                 }
             }
 
-
-            $this->flashMessage('Apartmán byl uložen.', 'success');
-            $this->redirect('this');
+            $this->flashMessage($isEdit ? 'Apartmán byl upraven.' : 'Apartmán byl uložen.', 'success');
+            $this->redirect('default');
         });
     }
+
 
     protected function createComponentReservationForm(): Form
     {
@@ -152,4 +177,106 @@ final class AccommodationPresenter extends BasePresenter
             $this->redirect('this');
         });
     }
+
+    public function renderDefault(): void
+    {
+        $this->template->apartments = $this->apartmentRepository->getAll()->fetchAll();
+    }
+
+    public function handleDelete(int $id): void
+    {
+        $apartment = $this->apartmentRepository->getById($id);
+        if (!$apartment) {
+            $this->flashMessage('Apartmán nebyl nalezen.', 'error');
+            $this->redirect('this');
+        }
+
+        $uploadDir = __DIR__ . "/../../../../www/uploads/apartments/$id";
+
+        // 1. Najdi obrázky
+        $images = $this->imagesApartmentRepository
+            ->getBy(['apartment_id' => $id])
+            ->fetchAll();
+
+        // 2. Smaž soubory obrázků
+        foreach ($images as $image) {
+            $path = "$uploadDir/{$image->id}.jpg";
+            if (is_file($path)) {
+                unlink($path);
+            }
+        }
+
+        // 3. Smaž záznamy obrázků z DB
+        $this->imagesApartmentRepository
+            ->getBy(['apartment_id' => $id])
+            ->delete();
+
+        // 4. Smaž hlavní obrázek (pokud existuje)
+        if ($apartment->main_image_name) {
+            $mainPath = "$uploadDir/{$apartment->main_image_name}";
+            if (is_file($mainPath)) {
+                unlink($mainPath);
+            }
+        }
+
+        // 5. Smaž apartmán samotný
+        $this->apartmentRepository->delete($id);
+
+        // 6. Smaž adresář
+        if (is_dir($uploadDir)) {
+            $this->deleteDirectory($uploadDir);
+        }
+
+        $this->flashMessage('Apartmán byl úspěšně smazán včetně všech obrázků.', 'success');
+        $this->redirect('this');
+    }
+
+
+    private function deleteDirectory(string $dir): void
+    {
+        if (!is_dir($dir)) {
+            return;
+        }
+
+        $items = scandir($dir);
+        foreach ($items as $item) {
+            if ($item === '.' || $item === '..') {
+                continue;
+            }
+
+            $path = "$dir/$item";
+            if (is_dir($path)) {
+                $this->deleteDirectory($path); // rekurze pro podadresáře
+            } else {
+                unlink($path);
+            }
+        }
+
+        rmdir($dir);
+    }
+
+    public function handleDeleteImage(int $id): void
+    {
+        if (!$this->isAjax()) {
+            $this->error('Pouze AJAX požadavek', 400);
+        }
+
+        $image = $this->imagesApartmentRepository->getById($id);
+        if (!$image) {
+            $this->sendJson(['status' => 'error', 'message' => 'Obrázek nenalezen']);
+            return;
+        }
+
+        $uploadDir = __DIR__ . '/../../../../www/uploads/apartments/' . $image->apartment_id;
+        $filePath = "$uploadDir/{$image->id}.jpg";
+
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+
+        $this->imagesApartmentRepository->delete($id);
+
+        $this->sendJson(['status' => 'ok']);
+    }
+
 }
