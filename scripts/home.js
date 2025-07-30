@@ -25,33 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
  * Single file upload (main image)
  */
 function initSingleUpload(input, dropArea, previewList) {
-    const dt = new DataTransfer();
+    let current = null;
+
+    const add = (file) => {
+        current = file;
+        previewList.innerHTML = '';
+        createPreview(file, previewList, () => {
+            current = null;
+        });
+    };
 
     setupDropEvents(dropArea, (files) => {
-        if (!files.length) return;
-        dt.items.clear();
-        dt.items.add(files[0]);
-        input.files = dt.files;
-        previewList.innerHTML = '';
-        createPreview(files[0], previewList, () => {
-            dt.items.clear();
-            input.value = '';
-        });
+        if (files.length) {
+            add(files[0]);
+        }
     });
 
     dropArea.addEventListener('click', () => input.click());
     input.addEventListener('change', () => {
-        if (!input.files.length) return;
-        const file = input.files[0];
-        input.value = '';
-        dt.items.clear();
-        dt.items.add(file);
-        input.files = dt.files;
-        previewList.innerHTML = '';
-        createPreview(file, previewList, () => {
-            dt.items.clear();
+        if (input.files.length) {
+            add(input.files[0]);
             input.value = '';
-        });
+        }
+    });
+
+    input.closest('form').addEventListener('submit', () => {
+        const dt = new DataTransfer();
+        if (current) dt.items.add(current);
+        input.files = dt.files;
     });
 }
 
@@ -59,29 +60,32 @@ function initSingleUpload(input, dropArea, previewList) {
  * Multiple files upload (gallery)
  */
 function initMultiUpload(input, dropArea, previewList) {
-    const dt = new DataTransfer();
+    let files = [];
 
-    const handle = (files) => {
-        for (const file of files) {
-            dt.items.add(file);
+    const addFiles = (list) => {
+        Array.from(list).forEach((file) => {
+            files.push(file);
             createPreview(file, previewList, (wrapper) => {
-                const index = Array.from(previewList.children).indexOf(wrapper);
-                dt.items.remove(index);
-                input.files = dt.files;
+                const idx = Array.from(previewList.children).indexOf(wrapper);
+                files.splice(idx, 1);
             });
-        }
-        input.files = dt.files;
+        });
     };
 
-    setupDropEvents(dropArea, handle);
+    setupDropEvents(dropArea, addFiles);
 
     dropArea.addEventListener('click', () => input.click());
     input.addEventListener('change', () => {
         if (input.files.length) {
-            const files = Array.from(input.files);
+            addFiles(input.files);
             input.value = '';
-            handle(files);
         }
+    });
+
+    input.closest('form').addEventListener('submit', () => {
+        const dt = new DataTransfer();
+        files.forEach(f => dt.items.add(f));
+        input.files = dt.files;
     });
 }
 
