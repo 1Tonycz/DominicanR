@@ -42,10 +42,13 @@ function initSingleUpload(input, dropArea, previewList) {
     dropArea.addEventListener('click', () => input.click());
     input.addEventListener('change', () => {
         if (!input.files.length) return;
+        const file = input.files[0];
+        input.value = '';
         dt.items.clear();
-        dt.items.add(input.files[0]);
+        dt.items.add(file);
+        input.files = dt.files;
         previewList.innerHTML = '';
-        createPreview(input.files[0], previewList, () => {
+        createPreview(file, previewList, () => {
             dt.items.clear();
             input.value = '';
         });
@@ -75,8 +78,9 @@ function initMultiUpload(input, dropArea, previewList) {
     dropArea.addEventListener('click', () => input.click());
     input.addEventListener('change', () => {
         if (input.files.length) {
-            handle(input.files);
+            const files = Array.from(input.files);
             input.value = '';
+            handle(files);
         }
     });
 }
