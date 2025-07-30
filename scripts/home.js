@@ -27,12 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSingleUpload(input, dropArea, previewList) {
     let current = null;
 
+    const refresh = () => {
+        const dt = new DataTransfer();
+        if (current) dt.items.add(current);
+        input.files = dt.files;
+    };
+
     const add = (file) => {
         current = file;
         previewList.innerHTML = '';
         createPreview(file, previewList, () => {
             current = null;
+            refresh();
         });
+        refresh();
     };
 
     setupDropEvents(dropArea, (files) => {
@@ -48,12 +56,6 @@ function initSingleUpload(input, dropArea, previewList) {
             input.value = '';
         }
     });
-
-    input.closest('form').addEventListener('submit', () => {
-        const dt = new DataTransfer();
-        if (current) dt.items.add(current);
-        input.files = dt.files;
-    });
 }
 
 /**
@@ -62,14 +64,22 @@ function initSingleUpload(input, dropArea, previewList) {
 function initMultiUpload(input, dropArea, previewList) {
     let files = [];
 
+    const refresh = () => {
+        const dt = new DataTransfer();
+        files.forEach(f => dt.items.add(f));
+        input.files = dt.files;
+    };
+
     const addFiles = (list) => {
         Array.from(list).forEach((file) => {
             files.push(file);
             createPreview(file, previewList, (wrapper) => {
                 const idx = Array.from(previewList.children).indexOf(wrapper);
                 files.splice(idx, 1);
+                refresh();
             });
         });
+        refresh();
     };
 
     setupDropEvents(dropArea, addFiles);
@@ -80,12 +90,6 @@ function initMultiUpload(input, dropArea, previewList) {
             addFiles(input.files);
             input.value = '';
         }
-    });
-
-    input.closest('form').addEventListener('submit', () => {
-        const dt = new DataTransfer();
-        files.forEach(f => dt.items.add(f));
-        input.files = dt.files;
     });
 }
 
