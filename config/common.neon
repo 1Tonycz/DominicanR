@@ -20,7 +20,18 @@ latte:
 	strictParsing: yes
 
 
+
 di:
 	export:
 		parameters: no
 		tags: no
+
+extensions:
+    fileUploadControl: Nepada\Bridges\FileUploadControlDI\FileUploadControlExtension
+
+fileUploadControl:
+    uploadDirectory: %appDir%/../www/tmp
+    registerExtensionMethod: true
+    templateFile: %appDir%/Admin/Forms/bootstrap4.latte
+
+

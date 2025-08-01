@@ -215,3 +215,136 @@
     background-color: #eaf4ff;
   }
 }
+
+.fuc-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.fuc-buttons .btn {
+  margin-bottom: 0.5rem;
+}
+
+.fuc-add {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fuc-add input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  font-size: 200px;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.fuc-container {
+  border: 2px dashed #dee2e6;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.fuc-container:hover {
+  background-color: #f1f3f5;
+}
+
+.fuc-dropzone {
+  font-weight: bold;
+  color: #6c757d;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.fuc-files.row {
+  margin-top: 1rem;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.fuc-file .card {
+  width: 12rem;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.fuc-file .card:hover {
+  transform: scale(1.02);
+}
+
+.fuc-file .card .card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.5rem 0.75rem;
+}
+
+.fuc-file .card .card-body {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.fuc-file .card .progress {
+  margin: 1rem 0;
+}
+
+.fuc-file .card .card-header .close {
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #dc3545;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.fuc-file .card .card-header .close:hover {
+  opacity: 1;
+}
+
+.fuc-file-thumbnail {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 8rem;
+  background-color: #f1f3f5;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.fuc-file-thumbnail img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.fuc-file-thumbnail > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,%3csvg viewBox="0 0 16 16" fill="%23ced4da" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/%3e%3cpath d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/%3e%3c/svg%3e') no-repeat center;
+  background-size: 50%;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
+.btn.disabled,
+.btn:disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}

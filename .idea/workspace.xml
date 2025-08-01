@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ce08f4-018d-4e2c-bd82-fbf1e783a955" name="Changes" comment="" />
+    <list default="true" id="08ce08f4-018d-4e2c-bd82-fbf1e783a955" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Forms/ApartmentFormFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Forms/ApartmentFormFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/UI/@layout.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/UI/@layout.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/UI/Accommodation/AccommodationPresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/UI/Accommodation/AccommodationPresenter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/UI/Accommodation/add.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/UI/Accommodation/add.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/UI/Accommodation/edit.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/UI/Accommodation/edit.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/common.neon" beforeDir="false" afterPath="$PROJECT_DIR$/config/common.neon" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/back/forms/forms__mobile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/back/forms/forms__mobile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/admin/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/admin/forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/uploads/apartments/9/17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/uploads/apartments/9/18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/uploads/apartments/9/22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/uploads/apartments/9/main_1753781884.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/uploads/apartments/9/main_1753798898.jpeg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +46,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="174057f24391ebdac035c5623800eedfda287b3e" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -76,6 +105,15 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/jzechy/jquery-fileupload" />
+      <path value="$PROJECT_DIR$/vendor/nepada/file-upload-control" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/contributte/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/nette/finder" />
+      <path value="$PROJECT_DIR$/vendor/nextras/form-components" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -95,7 +133,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/DominicanR/www/img/home&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/DominicanR/www/js&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,11 +150,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\DominicanR\www\js" />
+      <recent name="C:\xampp\htdocs\DominicanR\www\css" />
+      <recent name="C:\xampp\htdocs\DominicanR\Nepada" />
       <recent name="C:\xampp\htdocs\DominicanR\www\img\home" />
       <recent name="C:\xampp\htdocs\DominicanR\www\img" />
-      <recent name="C:\xampp\htdocs\DominicanR\www\video" />
-      <recent name="C:\xampp\htdocs\DominicanR\www\img\socials" />
-      <recent name="C:\xampp\htdocs\DominicanR\scripts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\DominicanR\www\img\home" />
@@ -152,10 +190,22 @@
       <workItem from="1752430323799" duration="6032000" />
       <workItem from="1753196829845" duration="78402000" />
       <workItem from="1753776599497" duration="10227000" />
+      <workItem from="1753915703677" duration="3567000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

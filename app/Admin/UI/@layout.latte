@@ -8,10 +8,19 @@
 		<title>DominicanR</title>
 		<link rel="stylesheet" href="{$basePath}/css/admin/{$css}.css?v={$currVer}">
 		<script src="{$basePath}/js/{if isset($js)}{$js}{else}master{/if}.js?v={$currVer}" defer></script>
+		<!--<script src="{$basePath}/js/file-upload-control.js"></script>-->
+
+		<link rel="stylesheet" href="{$basePath}/css/file-upload-control-bootstrap4.css">
 		<meta name="theme-color" content="#15D6A2">
 	</head>
+
 	<body>
 		{control navbar}
 		{block content}{/block}
+		<script src="https://unpkg.com/jquery@^3.5.0/dist/jquery.min.js"></script>
+		<script src="https://unpkg.com/blueimp-file-upload@^10.10.0/js/vendor/jquery.ui.widget.js"></script>
+		<script src="https://unpkg.com/blueimp-file-upload@^10.10.0/js/jquery.fileupload.js"></script>
+		<script src="https://unpkg.com/nette-forms@^3.0.3/src/assets/netteForms.min.js"></script>
+		<script src="https://unpkg.com/@nepada/file-upload-control@^1.7/dist/js/file-upload-control.min.js"></script>
 	</body>
 </html>

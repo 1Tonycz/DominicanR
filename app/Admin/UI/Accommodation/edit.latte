@@ -2,6 +2,7 @@
 {var $js = "home"}
 
 {block content}
+
     <div class="apartment-form">
         <h1>{$heading}</h1>
 
@@ -25,41 +26,12 @@
                 {input price}
                 </div>
             </div>
-
-            {* === Hlavní obrázek === *}
-        <div class="accom-images accom-images--main">
-                    <span class="accom-images__label">Hlavní obrázek</span>
-                    <div id="main-drop-area" class="accom-images__drop">
-                        Přetáhněte hlavní obrázek sem nebo klikněte
-                        <input type="file" name="mainImage" id="mainImageInput" accept="image/*" hidden>
-                    </div>
-                    <div id="main-preview" class="accom-images__preview-list">
-                        {if $apartment->main_image_name}
-                            <div class="accom-images__preview">
-                                <img src="{$basePath}/uploads/apartments/{$apartment->id}/{$apartment->main_image_name}" alt="">
-                                <span class="accom-images__delete">×</span>
-                            </div>
-                        {/if}
-                    </div>
-        </div>
-
-        {* === Galerie === *}
-            <div class="accom-images">
-                <span class="accom-images__label">Galerie obrázků</span>
-                <div id="gallery-drop-area" class="accom-images__drop">
-                    Přetáhněte obrázky sem nebo klikněte pro výběr
-                    <input type="file" name="images[]" id="galleryInput" multiple accept="image/*" hidden>
-                </div>
-                <div id="gallery-preview" class="accom-images__preview-list">
-                    {foreach $images as $image}
-                        <div class="accom-images__preview" data-id="{$image->id}">
-                            <img src="{$basePath}/uploads/apartments/{$apartment->id}/{$image->id}.jpg" alt="">
-                            <span class="accom-images__delete" data-id="{$image->id}">×</span>
-                        </div>
-                    {/foreach}
-                </div>
+            <div>
+                {control form.main_image}
             </div>
-
+            <div>
+                {input form.gallery}
+            </div>
             <div>
                 {input save}
             </div>

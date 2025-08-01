@@ -19,7 +19,11 @@
 		"nette/utils": "^4.0",
 		"latte/latte": "^3.0",
 		"tracy/tracy": "^2.10",
-		"doctrine/migrations": "^3.9"
+		"doctrine/migrations": "^3.9",
+		"jzechy/jquery-fileupload": "^1.2",
+		"nepada/file-upload-control": "^1.9",
+		"contributte/translation": "^2.0",
+		"nextras/form-components": "^2.0"
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
